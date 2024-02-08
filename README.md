@@ -37,6 +37,7 @@ winelike: prints this! :3"
 
 ## Credits
 [Kron4ek's Wine Builds](https://github.com/Kron4ek/Wine-Builds) for providing the Wine binary used by WineLike!
+
 [Winetricks](https://github.com/Winetricks/winetricks) for installing all Windows' core components 🙏
 
 And that's all! Enjoy running your Windows programs, but better 🍷
