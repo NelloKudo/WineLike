@@ -8,14 +8,23 @@
 export WINEPREFIX=$HOME/.WineLike
 export PATH=/home/$USER/.local/share/winelike/wine-tkg/bin:$PATH
 
+function Echo(){
+    echo -e '\033[1;32m'"WineLike:\033[0m $*"
+}
+
 function Help(){
+    echo ""
+    Echo "--------------------------------------"
     Echo "Quick guide on how to use this script:"
+    Echo "--------------------------------------"
     Echo "winelike --kill: Kills WineLike if hanging!"
     Echo "winelike --winecfg: Runs winecfg on prefix"
     Echo "winelike --regedit: Runs regedit on prefix"
     Echo "winelike --winetricks: Runs winetricks on prefix"
     Echo "winelike --remove: Removes WineLike from PC"
     Echo "winelike: prints this! :3"
+    Echo "--------------------------------------"
+    echo ""
 }
 
 case $1 in

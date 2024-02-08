@@ -38,6 +38,9 @@ function Install(){
         Echo "WineLike prefix exists, skipping.."
     else
         WINEARCH=win64 WINEPREFIX=~/.WineLike ~/.local/share/winelike/winetrickswl -q -f dotnet48 cjkfonts corefonts vcrun2022 dxvk vkd3d
+        WINEPREFIX=~/.WineLike wine reg add "HKEY_CLASSES_ROOT\folder\shell\open\command"
+        WINEPREFIX=~/.WineLike wine reg delete "HKEY_CLASSES_ROOT\folder\shell\open\ddeexec" /f
+        WINEPREFIX=~/.WineLike wine reg add "HKEY_CLASSES_ROOT\folder\shell\open\command" /f /ve /t REG_SZ /d "/home/$USER/.local/share/winelike/nativefolder.sh xdg-open \"%1\""
         Echo "WineLike prefix installation done.."
     fi
 
@@ -55,7 +58,11 @@ function Install(){
     chmod +x "$HOME/.local/share/applications/WineLike.desktop"
 
 
-    Echo ""
+    Echo "Installing WineLike helper scripts.."
+    wget -O /home/$USER/.local/share/winelike/nativefolder.sh https://raw.githubusercontent.com/NelloKudo/WineLike/main/misc/nativefolder.sh && chmod +x /home/$USER/.local/share/winelike/nativefolder.sh
+    wget -O /tmp/winelike https://raw.githubusercontent.com/NelloKudo/WineLike/main/winelike.sh && chmod +x /tmp/winelike
+    Echo "Copying to /usr/local/bin.."
+    sudo mv /tmp/winelike /usr/local/bin
 
     Echo "WineLike is now installed! Start by right-clicking your"
     Echo "exe files and selecting 'Open with WineLike..' e.e"
