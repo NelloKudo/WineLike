@@ -18,7 +18,7 @@
 
 - After that, paste the following in your terminal:
 ```
-bash -c "$(wget -qO- https://raw.githubusercontent.com/NelloKudo/WineLike/main/winelike.sh)"
+bash -c "$(wget -qO- https://raw.githubusercontent.com/NelloKudo/WineLike/main/winelike-install.sh)"
 ```
 - Due to Winetricks installing Windows' core components, installation is going to take ~10/15 min. depending on your PC and connection. Please be patient! 🙏
 
