@@ -37,7 +37,7 @@ function Install(){
     if [ -d ~/.WineLike ]; then
         Echo "WineLike prefix exists, skipping.."
     else
-        WINEARCH=win64 WINEPREFIX=~/.WineLike ~/.local/share/winelike/winetrickswl -q -f dotnet48 cjkfonts corefonts vcrun2022 dxvk vkd3d
+        WINEARCH=win64 WINEPREFIX=~/.WineLike ~/.local/share/winelike/winetrickswl -q -f dotnet20 dotnet48 cjkfonts corefonts vcrun2022 dxvk vkd3d
         WINEPREFIX=~/.WineLike wine reg add "HKEY_CLASSES_ROOT\folder\shell\open\command"
         WINEPREFIX=~/.WineLike wine reg delete "HKEY_CLASSES_ROOT\folder\shell\open\ddeexec" /f
         WINEPREFIX=~/.WineLike wine reg add "HKEY_CLASSES_ROOT\folder\shell\open\command" /f /ve /t REG_SZ /d "/home/$USER/.local/share/winelike/nativefolder.sh xdg-open \"%1\""
